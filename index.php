@@ -1,5 +1,7 @@
 <?php 
 
+	
+
 	include('inc/db_connect.php');
 	$_SESSION['page'] = 'active';
 	if(isset($_GET['callback'])){
@@ -26,9 +28,19 @@
 			//Get the posts. If they are anon, get all recent.
 			//If they are logged in, get theirs and the people they are following
 			if(!isset($_SESSION['uid'])){
-						$results = DB::query("SELECT * FROM posts
-							ORDER BY timestamp desc limit 30");
-			}				
+				$results = DB::query(
+					"SELECT posts.content, posts.timestamp, users.username FROM posts
+						LEFT JOIN users on posts.uid=users.id
+						ORDER BY posts.timestamp desc limit 30");
+				//we now have all results, max of 30, orderd by time posted.
+				//Let's print them off.
+				foreach($results as $result){
+					  	print '<div class="row home-post">
+						  	<div class="col-md-12 text-center">'.$result['content'].' -- '.$result['username'].'</div>
+						  	<div class="col-md-12 text-center">'.$result['timestamp'].'</div>';
+						print '</div>';
+				}
+			}
 		?>
 
 
