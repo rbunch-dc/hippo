@@ -9,7 +9,7 @@ $( document ).ready(function() {
 		        	type: "post",
 		        	data: {uid:uid, follow_type:dataFollow},
 		        	success: function(result){
-console.log(result);
+
 		        		var buttonToChange = $( "[uid="+uid+"]" );
 		        		if((buttonToChange).hasClass("btn-primary")){
 		        			//We need to remove btn-primary to change the color of the button
