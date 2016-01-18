@@ -41,3 +41,27 @@
 			}
 		}
 	}
+
+
+	#defenders-text{
+	    position: absolute;
+	    top: 140px;
+	    left: 20px;
+	    font-size: 40px;
+	    max-width: 40%;
+		color: #730102;
+		font-family: 'Lato', sans-serif;
+	    @media all and (min-width: 1280px) {
+	    	
+		}
+	}
+
+.header-image{
+	width: 100%;
+	padding: 0px;
+	z-index: 1000;
+	img{
+		width: 100%;
+	}
+}
+

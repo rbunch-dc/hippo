@@ -10,6 +10,7 @@
             $uid = $row['uid'];
             $_SESSION['name'] = $row['name'];
             $passwordVerify = password_verify($password, $hash);
+
         }
     }catch(MeekroDBException $e){
         header('Location: /login.php?error=yes');

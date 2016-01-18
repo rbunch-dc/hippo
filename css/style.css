@@ -52,6 +52,28 @@
   cursor: pointer;
 }
 
+/* line 46, ../compass/sass/base.scss */
+#defenders-text {
+  position: absolute;
+  top: 140px;
+  left: 20px;
+  font-size: 40px;
+  max-width: 40%;
+  color: #730102;
+  font-family: 'Lato', sans-serif;
+}
+
+/* line 59, ../compass/sass/base.scss */
+.header-image {
+  width: 100%;
+  padding: 0px;
+  z-index: 1000;
+}
+/* line 63, ../compass/sass/base.scss */
+.header-image img {
+  width: 100%;
+}
+
 /* line 4, ../compass/sass/style.scss */
 #total-wrapper {
   position: relative;
