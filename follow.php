@@ -6,11 +6,7 @@
 	$results_following = DB::query("SELECT distinct(user_id_to_follow) FROM following following
 		WHERE following.user_id=%i" , $_SESSION['uid']);
 
-	foreach($results_following as $user){
-		$users[] = $user;
-	}
-
-		$last = count($results_following);
+	$last = count($results_following);
 
 	$following_array = [];
 	if($last > 0){

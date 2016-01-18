@@ -29,4 +29,61 @@ $( document ).ready(function() {
 		        		}
 	    	    }});		
 	})
+	$('.vote').click(function(){
+		var vid = $(this).attr('post_id');
+		if($(this).hasClass ("vote-up")){
+			var voteType = 1;
+		}else{
+			var voteType = -1;
+		}
+	
+		        $.ajax({
+		        	url: "process_vote.php", 
+		        	type: "post",
+		        	data: {vid:vid, voteType:voteType},
+		        	success: function(result){
+		        		if (result == 'login'){
+		        			console.log(vid);
+		        			$( "[error_id="+vid+"]" ).html('You must be logged in to vote.');
+		        		}else if(result == 'already'){
+		        			console.log(vid);
+		        			$( "[error_id="+vid+"]" ).html('You already voted.');
+		        		}else{
+			        		console.log(result);
+			        		if (result != "You Already Voted"){
+				        		var countToChange = $( "[up-down-id="+vid+"]" );
+								countToChange.html(result);
+							}else{
+								var errorToChange = $( "[error-id="+vid+"]" );
+								console.log (errorToChange);
+								errorToChange.html(result);
+							}
+						}
+		        	}
+	    	    });	
+	});
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

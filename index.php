@@ -74,9 +74,11 @@
 						if($i != $last){$following_array .= ",";}
 					}
 
-					$posts = DB::query("SELECT * FROM posts 
+					$posts = DB::query("SELECT posts.content, posts.timestamp, users.username, posts.id FROM posts 
 						LEFT JOIN users on posts.uid=users.id
 						WHERE uid IN ($following_array)");					
+
+
 				}else{
 					$posts = DB::query(
 						"SELECT posts.content, posts.timestamp, users.username FROM posts
@@ -86,6 +88,8 @@
 
 				}
 			}
+
+
 				//Let's print them off.
 				  	foreach($posts as $post){
 				  		$count = 0;
